@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.STRAPI_BASE_URL;
 const API_TOKEN = process.env.API_TOKEN;
 
 const createHeaders = () => {
