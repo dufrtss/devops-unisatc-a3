@@ -25,7 +25,7 @@ test.describe('Testes da API de author', () => {
         expect(responseBody.data.name).toBe(newAuthor.name);
     });
 
-    test('GET /authors - deve retornar uma lista de authores', async ({ request }) => {
+    test('GET /authors - deve retornar uma lista de autores', async ({ request }) => {
         const response = await request.get(`${BASE_URL}/authors`, {
             headers: createHeaders(),
         });
