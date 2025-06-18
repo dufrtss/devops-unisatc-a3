@@ -47,7 +47,7 @@ jobs:
         run: |
           echo "Waiting for Strapi to start..."
           pnpm add wait-on --global # Install wait-on tool
-          wait-on tcp:1337 -t 30000 # Increased timeout to 30 seconds
+          wait-on tcp:1337 -t 1000 # Increased timeout to 30 seconds
           echo "Strapi is ready!"
         continue-on-error: true
 
