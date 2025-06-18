@@ -1,4 +1,4 @@
-name: Build and Test
+name: Playwright Tests
 
 on:
   push:
@@ -36,6 +36,7 @@ jobs:
       - name: Start Strapi app and log output
         run: pnpm start > strapi.log 2>&1 &
         env:
+          NODE_ENV: production
           PORT: 1337
           APP_KEYS: ${{ secrets.APP_KEYS }}
           API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
@@ -46,7 +47,7 @@ jobs:
         run: |
           echo "Waiting for Strapi to start..."
           pnpm add wait-on --global # Install wait-on tool
-          wait-on tcp:1337 -t 90000 # Increased timeout to 90 seconds
+          wait-on tcp:1337 -t 1000 # Increased timeout to 30 seconds
           echo "Strapi is ready!"
         continue-on-error: true
 

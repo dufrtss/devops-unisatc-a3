@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import data from '../data/data.json';
 
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.STRAPI_BASE_URL || 'http://localhost:1337/api';
 const API_TOKEN = process.env.API_TOKEN;
 
 const createHeaders = () => {
@@ -25,7 +25,7 @@ test.describe('Testes da API de author', () => {
         expect(responseBody.data.name).toBe(newAuthor.name);
     });
 
-    test('GET /authors - deve retornar uma lista de authores', async ({ request }) => {
+    test('GET /authors - deve retornar uma lista de autores', async ({ request }) => {
         const response = await request.get(`${BASE_URL}/authors`, {
             headers: createHeaders(),
         });
