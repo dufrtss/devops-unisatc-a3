@@ -44,7 +44,9 @@ jobs:
 
       - name: Wait for Strapi to be ready
         run: |
-          npx wait-on http://localhost:1337/admin
+          echo "Waiting for Strapi to start..."
+          pnpm add wait-on --global # Install wait-on tool
+          wait-on tcp:1337 -t 90000 # Increased timeout to 90 seconds
           echo "Strapi is ready!"
 
       - name: Install Playwright browsers
