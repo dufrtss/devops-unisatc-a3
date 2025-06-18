@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import data from '../data/data.json';
 
-const BASE_URL = process.env.STRAPI_BASE_URL;
+const BASE_URL = process.env.STRAPI_BASE_URL || 'http://localhost:1337/api';
 const API_TOKEN = process.env.API_TOKEN;
 
 const createHeaders = () => {
