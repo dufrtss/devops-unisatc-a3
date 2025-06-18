@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const BASE_URL = `http://localhost:1337/api`;
+const BASE_URL = process.env.STRAPI_BASE_URL || 'http://127.0.0.1:1337/api';
 const API_TOKEN = process.env.API_TOKEN;
 
 const createHeaders = () => {
